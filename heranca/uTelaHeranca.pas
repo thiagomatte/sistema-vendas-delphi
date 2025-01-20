@@ -43,6 +43,8 @@ type
     procedure grdListagemTitleClick(Column: TColumn);
     procedure mskPesquisaChange(Sender: TObject);
     procedure grdListagemDblClick(Sender: TObject);
+    procedure grdListagemKeyDown(Sender: TObject; var Key: Word;
+      Shift: TShiftState);
   private
     procedure ControlarBotoes(btnNovo, btnAlterar, btnCancelar, btnGravar,
       btnApagar: TBitBtn; btnNavigator: TDBNavigator;
@@ -58,9 +60,9 @@ type
     { Public declarations }
     EstadoDoCadastro:TEstadoDoCadastro;
     IndiceAtual:string;
+    procedure BloqueiaCTRL_DEL_DBGrid(var Key: Word; Shift: TShiftState);
     function Gravar(EstadoDoCadastro:TEstadoDoCadastro):boolean; virtual;
     function Apagar:Boolean; virtual;
-
   end;
 
 var
@@ -260,6 +262,12 @@ begin
   btnAlterar.Click;
 end;
 
+procedure TfrmTelaHeranca.grdListagemKeyDown(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+begin
+  BloqueiaCTRL_DEL_DBGrid(Key, Shift);
+end;
+
 procedure TfrmTelaHeranca.btnGravarClick(Sender: TObject);
 begin
   if (ExisteCampoObrigatorio) then
@@ -296,6 +304,13 @@ begin
   finally
     EstadoDoCadastro:=ecNenhum;
   end;
+end;
+
+procedure TfrmTelaHeranca.BloqueiaCTRL_DEL_DBGrid(var Key: Word; Shift: TShiftState);
+begin
+  // Caso haja a combinação de teclas CTRL + tecla 46 (delete) ele bloqueia a ação
+  if (Shift = [ssCtrl]) and (Key = 46) then
+  Key:= 0;
 end;
 
 end.

@@ -47,6 +47,7 @@ object frmMenuPrincipal: TfrmMenuPrincipal
       Caption = '&MOVIMENTA'#199#195'O'
       object VENDA1: TMenuItem
         Caption = '&VENDA'
+        OnClick = VENDA1Click
       end
     end
     object RELATRIOS1: TMenuItem
