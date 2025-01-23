@@ -2,8 +2,8 @@ object frmMenuPrincipal: TfrmMenuPrincipal
   Left = 0
   Top = 0
   Caption = 'Menu Principal'
-  ClientHeight = 584
-  ClientWidth = 1107
+  ClientHeight = 679
+  ClientWidth = 1191
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -15,6 +15,36 @@ object frmMenuPrincipal: TfrmMenuPrincipal
   OnClose = FormClose
   OnCreate = FormCreate
   TextHeight = 13
+  object Label1: TLabel
+    Left = 0
+    Top = 608
+    Width = 1191
+    Height = 71
+    Align = alBottom
+    Caption = 'Zandon'#225' Solu'#231#245'es em Software'
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -53
+    Font.Name = 'Yu Gothic UI'
+    Font.Style = [fsBold]
+    ParentFont = False
+    ExplicitWidth = 761
+  end
+  object Label2: TLabel
+    Left = 0
+    Top = 568
+    Width = 1191
+    Height = 40
+    Align = alBottom
+    Caption = 'Power By'
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -32
+    Font.Name = 'Trebuchet MS'
+    Font.Style = []
+    ParentFont = False
+    ExplicitWidth = 131
+  end
   object MainMenu1: TMainMenu
     Left = 120
     Top = 24
@@ -52,17 +82,35 @@ object frmMenuPrincipal: TfrmMenuPrincipal
     end
     object RELATRIOS1: TMenuItem
       Caption = '&RELAT'#211'RIO'
+      object CATEGORIA1: TMenuItem
+        Caption = 'CATEGORIA'
+        OnClick = CATEGORIA1Click
+      end
       object CLIENTE2: TMenuItem
         Caption = '&CLIENTE'
+        OnClick = CLIENTE2Click
+      end
+      object FICHADECLIENTE1: TMenuItem
+        Caption = 'FICHA DE CLIENTE'
+        OnClick = FICHADECLIENTE1Click
+      end
+      object N4: TMenuItem
+        Caption = '-'
       end
       object PRODUTO2: TMenuItem
         Caption = '&PRODUTO'
+        OnClick = PRODUTO2Click
+      end
+      object PRODUTOSPORCATEGORIA1: TMenuItem
+        Caption = 'PRODUTOS POR CATEGORIA'
+        OnClick = PRODUTOSPORCATEGORIA1Click
       end
       object N3: TMenuItem
         Caption = '-'
       end
       object VENDAPORDIA1: TMenuItem
         Caption = '&VENDA POR DATA'
+        OnClick = VENDAPORDIA1Click
       end
     end
   end

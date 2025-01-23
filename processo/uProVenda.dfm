@@ -173,6 +173,7 @@ inherited frmProVenda: TfrmProVenda
               TitleFont.Height = -11
               TitleFont.Name = 'Tahoma'
               TitleFont.Style = []
+              OnDblClick = dbGridItensVendaDblClick
               OnKeyDown = dbGridItensVendaKeyDown
               Columns = <
                 item
@@ -215,7 +216,7 @@ inherited frmProVenda: TfrmProVenda
             Align = alBottom
             TabOrder = 2
             object Label2: TLabel
-              Left = 625
+              Left = 656
               Top = 14
               Width = 84
               Height = 13
@@ -228,7 +229,7 @@ inherited frmProVenda: TfrmProVenda
               ParentFont = False
             end
             object edtValorTotal: TCurrencyEdit
-              Left = 723
+              Left = 751
               Top = 11
               Width = 121
               Height = 21
@@ -247,6 +248,7 @@ inherited frmProVenda: TfrmProVenda
           ListField = 'nome'
           ListSource = dtmVenda.dtsProdutos
           TabOrder = 3
+          OnExit = lkpProdutoExit
         end
         object edtValorUnitario: TCurrencyEdit
           Left = 279
@@ -274,7 +276,7 @@ inherited frmProVenda: TfrmProVenda
           ReadOnly = True
           TabOrder = 6
         end
-        object BitBtn1: TBitBtn
+        object btnAdicionarItem: TBitBtn
           Left = 687
           Top = 94
           Width = 90
@@ -308,8 +310,9 @@ inherited frmProVenda: TfrmProVenda
             17BF6F17FF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF
             00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FF}
           TabOrder = 7
+          OnClick = btnAdicionarItemClick
         end
-        object BitBtn2: TBitBtn
+        object btnApagarItem: TBitBtn
           Left = 783
           Top = 94
           Width = 90
@@ -344,12 +347,12 @@ inherited frmProVenda: TfrmProVenda
             00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FF}
           TabOrder = 8
           TabStop = False
+          OnClick = btnApagarItemClick
         end
       end
     end
   end
   inherited QryListagem: TZQuery
-    Active = True
     SQL.Strings = (
       
         'SELECT vendas.vendaId, vendas.clienteId, clientes.nome, vendas.d' +
